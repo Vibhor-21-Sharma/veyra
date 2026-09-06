@@ -463,14 +463,14 @@ function Dashboard() {
         </div>
 
         <div className="navbar-links">
-          <a href="/dashboard">Dashboard</a>
-          <a href="/profile">Profile</a>
+          <a href="/#/dashboard">Dashboard</a>
+          <a href="/#/profile">Profile</a>
 
           <button
             className="logout-btn"
             onClick={() => {
               localStorage.removeItem("token");
-              window.location.href = "/login";
+              window.location.href = "/#/login";
             }}
           >
             Logout
