@@ -9,7 +9,6 @@ function Register() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-
     setMessage("");
 
     if (!name.trim() || !email.trim() || !password.trim()) {
@@ -25,17 +24,20 @@ function Register() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: name.trim(),
-          email: email.trim(),
-          password,
-        }),
-      });
+      const response = await fetch(
+        "https://veyra-gt15.onrender.com/users",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: name.trim(),
+            email: email.trim(),
+            password,
+          }),
+        }
+      );
 
       const data = await response.json();
 
@@ -50,7 +52,7 @@ function Register() {
       setMessage("Account created successfully! Redirecting...");
 
       setTimeout(() => {
-        window.location.href = "/login";
+        window.location.href = "/#/login";
       }, 1000);
     } catch (error) {
       setMessage("Cannot connect to server.");
@@ -102,7 +104,7 @@ function Register() {
 
         <p>
           Already have an account?{" "}
-          <a href="/login">Login</a>
+          <a href="#/login">Login</a>
         </p>
       </div>
     </div>
