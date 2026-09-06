@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/login";
 import Register from "./pages/register";
@@ -17,11 +17,11 @@ function Home() {
       </p>
 
       <div className="home-buttons">
-        <a href="/login">
+        <a href="#/login">
           <button className="secondary-btn">Login</button>
         </a>
 
-        <a href="/register">
+        <a href="#/register">
           <button className="primary-btn">Get Started</button>
         </a>
       </div>
@@ -31,7 +31,7 @@ function Home() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -39,7 +39,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
